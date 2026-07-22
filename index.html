@@ -8,9 +8,15 @@
 :root{--bg:#000;--card:#1b1c1e;--pill:#2b3550;--txt:#fff;--sub:#8b8d92;--blue:#4b8cf7;--radius:22px}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;-webkit-user-select:none;-moz-user-select:none;user-select:none;-webkit-touch-callout:none}
 html,body{margin:0;padding:0;background:#000;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;color:var(--txt)}
-.app{max-width:440px;margin:0 auto;min-height:100vh;background:var(--bg);position:relative;padding:12px 0 92px}
-/* notif rounded bar */
-.notif{display:flex;gap:9px;justify-content:center;align-items:center;color:#d7d8db;font-size:16px;background:var(--card);border-radius:22px;margin:0 14px;padding:16px 18px}
+.app{max-width:440px;margin:0 auto;min-height:100vh;background:var(--bg);position:relative;padding:0 0 92px}
+/* top panel (notifications) — flush to top, rounded bottom */
+.top-panel{background:#1c1c1e;border-bottom-left-radius:32px;border-bottom-right-radius:32px;padding:16px 18px;display:flex;justify-content:center;align-items:center}
+/* black gap between panels */
+.spacer{height:12px;background:#000}
+/* bottom panel (main screen) — rounded top */
+.bottom-panel{background:#121214;border-top-left-radius:32px;border-top-right-radius:32px;padding:8px 0 14px;min-height:74vh}
+/* notif content */
+.notif{display:flex;gap:9px;justify-content:center;align-items:center;color:#d7d8db;font-size:16px}
 .notif svg{width:19px;height:19px;fill:#d7d8db}
 /* header */
 .hdr{display:flex;gap:12px;align-items:center;padding:14px 16px 6px}
@@ -84,7 +90,14 @@ html,body{margin:0;padding:0;background:#000;font-family:-apple-system,BlinkMacS
 </head>
 <body>
 <div class="app">
-  <div class="notif"><svg viewBox="0 0 24 24"><path d="M12 22a2.2 2.2 0 0 0 2.2-2.2H9.8A2.2 2.2 0 0 0 12 22Zm7-6v-5a7 7 0 0 0-5-6.7V3a2 2 0 1 0-4 0v1.3A7 7 0 0 0 5 11v5l-2 2v1h18v-1Z"/></svg>Уведомлений пока нет</div>
+  <!-- ВЕРХНЯЯ ПАНЕЛЬ (уведомления) -->
+  <div class="top-panel">
+    <div class="notif"><svg viewBox="0 0 24 24"><path d="M12 22a2.2 2.2 0 0 0 2.2-2.2H9.8A2.2 2.2 0 0 0 12 22Zm7-6v-5a7 7 0 0 0-5-6.7V3a2 2 0 1 0-4 0v1.3A7 7 0 0 0 5 11v5l-2 2v1h18v-1Z"/></svg>Уведомлений пока нет</div>
+  </div>
+  <!-- ЧЁРНЫЙ ЗАЗОР -->
+  <div class="spacer"></div>
+  <!-- НИЖНЯЯ ПАНЕЛЬ (главный экран) -->
+  <div class="bottom-panel">
   <div class="hdr">
     <div class="ava"><img src="images/avatar.png"></div>
     <div class="search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.5" y2="16.5"/></svg>Поиск</div>
@@ -116,6 +129,7 @@ html,body{margin:0;padding:0;background:#000;font-family:-apple-system,BlinkMacS
   <div class="sec">
     <div class="travel"><div class="txt"><b>Путешествуйте<br>с кэшбэком до 10%</b><span>При оплате картой T‑Банка</span></div></div>
   </div>
+  </div>
 </div>
 <div class="nav">
   <div class="n active"><div class="gi"><img src="images/nav/home.png"></div>Главная</div>
@@ -134,3 +148,4 @@ document.addEventListener('dragstart', function(e){ e.preventDefault(); });
 </script>
 </body>
 </html>
+​
