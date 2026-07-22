@@ -6,7 +6,7 @@
 <title>T‑Банк — Главная</title>
 <style>
 :root{--bg:#000;--card:#1b1c1e;--pill:#2b3550;--txt:#fff;--sub:#8b8d92;--blue:#4b8cf7;--radius:22px}
-*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent;-webkit-user-select:none;-moz-user-select:none;user-select:none;-webkit-touch-callout:none}
 html,body{margin:0;padding:0;background:#000;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;color:var(--txt)}
 .app{max-width:440px;margin:0 auto;min-height:100vh;background:var(--bg);position:relative;padding:12px 0 92px}
 /* notif rounded bar */
@@ -65,6 +65,21 @@ html,body{margin:0;padding:0;background:#000;font-family:-apple-system,BlinkMacS
 .nav .n .gi{height:27px;width:27px;display:flex;align-items:center;justify-content:center}
 .nav .n .gi img{height:27px;width:27px;object-fit:contain;display:block}
 .nav .n .gi svg{width:24px;height:24px;display:block}
+​
+/* micro-interactions */
+.search,.giftbtn,.hdr .ava,.qa .circle,.card,.nav .n,.subpill,.partners img,.qa .item{transition:transform .15s cubic-bezier(.34,1.56,.64,1),opacity .15s ease}
+.search:active,.giftbtn:active,.hdr .ava:active,.qa .circle:active,.card:active,.nav .n:active .gi,.subpill:active,.partners img:active{transform:scale(.94)}
+.nav .n{transition:color .2s ease}
+.badge{transition:transform .2s ease}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.notif,.hdr,.hero,.hero-title,.qa,.sec,.htitle{animation:fadeUp .5s cubic-bezier(.22,.61,.36,1) both}
+.hdr{animation-delay:.03s}
+.hero{animation-delay:.06s}
+.hero-title{animation-delay:.09s}
+.qa{animation-delay:.12s}
+.sec{animation-delay:.15s}
+.htitle{animation-delay:.18s}
+.nav{animation:fadeUp .45s cubic-bezier(.22,.61,.36,1) both;animation-delay:.05s}
 </style>
 </head>
 <body>
@@ -109,5 +124,13 @@ html,body{margin:0;padding:0;background:#000;font-family:-apple-system,BlinkMacS
   <div class="n"><div class="gi"><img src="images/nav/chat.png"></div>Чат</div>
   <div class="n"><div class="gi"><img src="images/nav/showcase.png"></div>Витрина</div>
 </div>
+​
+<script>
+document.addEventListener('contextmenu', function(e){ e.preventDefault(); });
+document.addEventListener('copy', function(e){ e.preventDefault(); });
+document.addEventListener('cut', function(e){ e.preventDefault(); });
+document.addEventListener('selectstart', function(e){ e.preventDefault(); });
+document.addEventListener('dragstart', function(e){ e.preventDefault(); });
+</script>
 </body>
 </html>
