@@ -7,14 +7,14 @@
 <style>
 :root{--bg:#000;--card:#1b1c1e;--pill:#2b3550;--txt:#fff;--sub:#8b8d92;--blue:#4b8cf7;--radius:22px}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;-webkit-user-select:none;-moz-user-select:none;user-select:none;-webkit-touch-callout:none}
-html,body{margin:0;padding:0;background:#000;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;color:var(--txt)}
-.app{max-width:440px;margin:0 auto;min-height:100vh;background:var(--bg);position:relative;padding:0 0 92px}
+html,body{margin:0;padding:0;background:#000;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;color:var(--txt);overscroll-behavior:none;overscroll-behavior-y:none}
+.app{max-width:440px;margin:0 auto;min-height:100vh;background:var(--bg);position:relative;padding:0;display:flex;flex-direction:column}
 /* top panel (notifications) — flush to top, rounded bottom */
 .top-panel{background:#1c1c1e;border-bottom-left-radius:32px;border-bottom-right-radius:32px;padding:16px 18px;display:flex;justify-content:center;align-items:center}
 /* black gap between panels */
 .spacer{height:12px;background:#000}
 /* bottom panel (main screen) — rounded top */
-.bottom-panel{background:#121214;border-top-left-radius:32px;border-top-right-radius:32px;padding:8px 0 14px;min-height:74vh}
+.bottom-panel{background:#121214;border-top-left-radius:32px;border-top-right-radius:32px;padding:8px 0 108px;flex:1}
 /* notif content */
 .notif{display:flex;gap:9px;justify-content:center;align-items:center;color:#d7d8db;font-size:16px}
 .notif svg{width:19px;height:19px;fill:#d7d8db}
@@ -78,14 +78,18 @@ html,body{margin:0;padding:0;background:#000;font-family:-apple-system,BlinkMacS
 .nav .n{transition:color .2s ease}
 .badge{transition:transform .2s ease}
 @keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
-.notif,.hdr,.hero,.hero-title,.qa,.sec,.htitle{animation:fadeUp .5s cubic-bezier(.22,.61,.36,1) both}
-.hdr{animation-delay:.03s}
-.hero{animation-delay:.06s}
-.hero-title{animation-delay:.09s}
-.qa{animation-delay:.12s}
-.sec{animation-delay:.15s}
-.htitle{animation-delay:.18s}
-.nav{animation:fadeUp .45s cubic-bezier(.22,.61,.36,1) both;animation-delay:.05s}
+@keyframes panelDown{from{opacity:0;transform:translateY(-100%)}to{opacity:1;transform:translateY(0)}}
+@keyframes panelUp{from{opacity:0;transform:translateY(36px)}to{opacity:1;transform:translateY(0)}}
+.top-panel{animation:panelDown .5s cubic-bezier(.22,.61,.36,1) both}
+.bottom-panel{animation:panelUp .55s cubic-bezier(.22,.61,.36,1) both;animation-delay:.08s}
+.hdr,.hero,.hero-title,.qa,.sec,.htitle{animation:fadeUp .5s cubic-bezier(.22,.61,.36,1) both}
+.hdr{animation-delay:.20s}
+.hero{animation-delay:.24s}
+.hero-title{animation-delay:.28s}
+.qa{animation-delay:.32s}
+.sec{animation-delay:.36s}
+.htitle{animation-delay:.40s}
+.nav{animation:fadeUp .45s cubic-bezier(.22,.61,.36,1) both;animation-delay:.22s}
 </style>
 </head>
 <body>
